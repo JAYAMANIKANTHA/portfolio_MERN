@@ -1,0 +1,561 @@
+remove  dot network effect <!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JAI Portfolio</title>
+  <li><a href="#certifications" class="hover:text-cyan-400">Certifications</a></li>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+      position: relative;
+    }
+    canvas#bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+     /* Hero Section */
+    .home-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .home-section iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 0;
+      object-fit: cover;
+      transform: scale(1.1);
+      transition: transform 0.1s ease-out;
+    }
+    .home-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      z-index: 2;
+    }
+    .home-overlay h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    }
+    .home-overlay p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    .glow-text {
+      text-shadow: 0px 0px 12px #00ffff, 0px 0px 20px #00aaff;
+    }
+    .card-glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .card-glass:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 0 25px rgba(0,255,255,0.4);
+    }
+    .btn-glow {
+      border: 1px solid #00ffff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .btn-glow:hover {
+      background: #00ffff;
+      color: #000;
+      box-shadow: 0 0 20px #00ffff;
+    }
+    .skill-bar {
+      height: 12px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg,#00ffff,#0077ff);
+      box-shadow: 0 0 10px #00ffff;
+    }
+    input, textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.8rem;
+      border-radius: 8px;
+      width: 100%;
+      color: white;
+      outline: none;
+    }
+    input:focus, textarea:focus {
+      border-color: #00ffff;
+      box-shadow: 0 0 10px #00ffff;
+    }
+    /* Custom style for animated scroll mouse */
+    .animate-bounce-slow {
+      animation: bounceMouse 1.35s infinite cubic-bezier(.61,0,.16,1);
+    }
+    @keyframes bounceMouse {
+      0%, 100% { margin-top: .5rem; opacity: .8; }
+      38% { margin-top: 2.1rem; opacity: 1; }
+      70% { margin-top: .5rem; opacity: .9;}
+    }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- Particle Background -->
+  <canvas id="bg"></canvas>
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-10 py-6 fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md">
+    <h1 class="text-2xl font-bold glow-text">JAI</h1>
+    <ul class="flex gap-10 text-lg font-medium">
+      <li><a href="#about" class="hover:text-cyan-400">About</a></li>
+      <li><a href="#projects" class="hover:text-cyan-400">Projects</a></li>
+      <li><a href="#certifications" class="hover:text-cyan-400">Certifications</a></li>
+      <li><a href="#skills" class="hover:text-cyan-400">Skills</a></li>
+      <li><a href="#contact" class="hover:text-cyan-400">Contact</a></li>
+      <li><a href="#gallery" class="hover:text-cyan-400">Gallery</a></li>
+    </ul>
+  </nav>
+
+ <!-- Hero -->
+  <section class="home-section">
+    <iframe src="https://my.spline.design/reactiveorb-J3SmcJhoKHJeN1g0phGhbLdm/"
+            frameborder="0"></iframe>
+
+
+  <!-- (optional) Scroll Mouse Animation at bottom center -->
+  <div class="absolute left-1/2 bottom-8 -translate-x-1/2">
+    <div class="w-8 h-14 border-2 border-cyan-200 rounded-3xl flex items-start justify-center mb-2" style="background:rgba(0,255,255,0.025)">
+      <div class="mouse-dot w-2 h-2 bg-cyan-200 rounded-full mt-2 animate-bounce-slow"></div>
+    </div>
+  </div>
+  <style>
+    .animate-bounce-slow {
+      animation: bounceMouse 1.35s infinite cubic-bezier(.61,0,.16,1);
+    }
+    @keyframes bounceMouse {
+      0%, 100% { margin-top: .5rem; opacity: .8; }
+      38% { margin-top: 2.1rem; opacity: 1; }
+      70% { margin-top: .5rem; opacity: .9;}
+    }
+  </style>
+</section>
+
+      <!-- Decorative dots -->
+      <span class="absolute top-6 left-16 w-4 h-4 bg-white/80 rounded-full blur-[2px]"></span>
+      <span class="absolute bottom-10 left-40 w-2.5 h-2.5 bg-white/60 rounded-full blur-[1px]"></span>
+      <span class="absolute top-20 right-14 w-3 h-3 bg-cyan-300/70 rounded-full blur-[3px]"></span>
+    </div>
+    <!-- Scroll Mouse Animation (center) -->
+    <div class="absolute left-1/2 bottom-8 -translate-x-1/2 flex flex-col items-center">
+      <div class="w-8 h-14 border-2 border-cyan-200 rounded-3xl flex items-start justify-center mb-2" style="background:rgba(0,255,255,0.025)">
+        <div class="mouse-dot w-2 h-2 bg-cyan-200 rounded-full mt-2 animate-bounce-slow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+<section id="about" class="min-h-screen flex items-center justify-center px-10 pt-32">
+  <div class="grid md:grid-cols-2 gap-16 items-center">
+    <!-- Profile Image -->
+    <div class="flex justify-center">
+      <img src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=" alt="Profile" class="rounded-full shadow-xl w-72 h-72 object-cover"/>
+    </div>
+
+    <!-- About Text -->
+    <div>
+      <h2 class="text-4xl font-bold glow-text mb-4">About Me</h2>
+      <h3 class="text-2xl font-semibold mb-4">Gudavalli Jaya Manikanta</h3>
+      <p class="text-gray-300 mb-6">
+        I am a passionate and versatile <strong>full-stack developer</strong> with expertise in 
+        <strong>web technologies, cybersecurity, and embedded systems</strong>. With hands-on experience 
+        in Python, JavaScript, HTML, CSS, and SQL, I’ve built projects ranging from smart 
+        face-recognition systems to complaint management platforms.  
+        <br><br>
+        My goal is to craft secure, scalable, and innovative solutions that combine clean code with 
+        user-friendly design, delivering both functionality and immersive digital experiences.
+      </p>
+
+      <!-- Skills -->
+      <div class="flex gap-6 text-center flex-wrap">
+        <div class="flex flex-col items-center"><span>💻</span>HTML</div>
+        <div class="flex flex-col items-center"><span>🎨</span>CSS</div>
+        <div class="flex flex-col items-center"><span>⚡</span>JavaScript</div>
+        <div class="flex flex-col items-center"><span>⚛️</span>React</div>
+        <div class="flex flex-col items-center"><span>🔒</span>Cybersecurity</div>
+        <div class="flex flex-col items-center"><span>🤖</span>Python</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Projects Section -->
+  <section id="projects" class="min-h-screen px-10 pt-32">
+    <h2 class="text-4xl font-bold glow-text text-center mb-12">Projects</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card-glass p-6 rounded-xl">
+        <h3 class="text-xl font-semibold mb-4">AI Dashboard</h3>
+        <p class="text-gray-400 mb-4">A futuristic AI-powered analytics dashboard with real-time data visualizations.</p>
+        <button class="btn-glow">View More</button>
+      </div>
+      <div class="card-glass p-6 rounded-xl">
+        <h3 class="text-xl font-semibold mb-4">3D Portfolio</h3>
+        <p class="text-gray-400 mb-4">Interactive 3D elements built using Spline and WebGL for next-gen experiences.</p>
+        <button class="btn-glow">View More</button>
+      </div>
+      <div class="card-glass p-6 rounded-xl">
+        <h3 class="text-xl font-semibold mb-4">Cyberpunk App</h3>
+        <p class="text-gray-400 mb-4">A neon-inspired UI with immersive animations and futuristic aesthetics.</p>
+        <button class="btn-glow">View More</button>
+      </div>
+    </div>
+  </section>
+<!-- Certifications Section -->
+<section id="certifications" class="min-h-screen px-10 pt-32">
+  <h2 class="text-4xl font-bold glow-text text-center mb-12">
+    <i class="fas fa-certificate text-cyan-400"></i> Certifications
+  </h2>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    
+    <!-- Example Certification -->
+    <div class="card-glass p-6 rounded-xl text-center">
+      <i class="fas fa-shield-alt text-3xl text-cyan-400 mb-4"></i>
+      <h3 class="text-xl font-semibold mb-2">Certified Ethical Hacker (CEH)</h3>
+      <p class="text-gray-400 text-sm">EC-Council | 2024</p>
+    </div>
+
+    <div class="card-glass p-6 rounded-xl text-center">
+      <i class="fas fa-network-wired text-3xl text-cyan-400 mb-4"></i>
+      <h3 class="text-xl font-semibold mb-2">Cisco CCNA</h3>
+      <p class="text-gray-400 text-sm">Cisco Networking Academy | 2023</p>
+    </div>
+
+    <div class="card-glass p-6 rounded-xl text-center">
+      <i class="fab fa-aws text-3xl text-yellow-400 mb-4"></i>
+      <h3 class="text-xl font-semibold mb-2">AWS Cloud Practitioner</h3>
+      <p class="text-gray-400 text-sm">Amazon Web Services | 2023</p>
+    </div>
+
+    <div class="card-glass p-6 rounded-xl text-center">
+      <i class="fas fa-shield-virus text-3xl text-red-400 mb-4"></i>
+      <h3 class="text-xl font-semibold mb-2">CompTIA Security+</h3>
+      <p class="text-gray-400 text-sm">CompTIA | 2022</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="min-h-screen px-10 pt-32">
+  <h2 class="text-4xl font-bold glow-text text-center mb-12">Skills</h2>
+  
+  <div class="space-y-12 max-w-6xl mx-auto">
+    
+    <!-- Cybersecurity Tools -->
+    <div>
+      <h3 class="text-2xl font-semibold mb-6 text-cyan-400">🔒 Cybersecurity & SOC</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card-glass p-4 rounded-xl text-center">🐧 Kali Linux</div>
+        <div class="card-glass p-4 rounded-xl text-center">🕵️ Burp Suite</div>
+        <div class="card-glass p-4 rounded-xl text-center">🌐 Wireshark</div>
+        <div class="card-glass p-4 rounded-xl text-center">📡 Nmap</div>
+        <div class="card-glass p-4 rounded-xl text-center">💣 Metasploit</div>
+        <div class="card-glass p-4 rounded-xl text-center">📊 SIEM Tools (Splunk / ELK)</div>
+        <div class="card-glass p-4 rounded-xl text-center">🛡️ OWASP Top 10 Knowledge</div>
+      </div>
+    </div>
+
+    <!-- Full-Stack Development -->
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <div>
+      <h3 class="text-2xl font-semibold mb-6 text-cyan-400">💻 Full-Stack Development</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card-glass p-4 rounded-xl text-center">⚛️ MERN (MongoDB, Express.js, React.js, Node.js)</div>
+        <div class="card-glass p-4 rounded-xl text-center">🐍 Python (Django Framework)</div>
+        <div class="card-glass p-4 rounded-xl text-center">🔗 REST API Development</div>
+       
+      </div>
+    </div>
+
+    <!-- Frontend & Core Web -->
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <div>
+      <h3 class="text-2xl font-semibold mb-6 text-cyan-400">🎨 Frontend & Core Web</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card-glass p-4 rounded-xl text-center">📄 HTML</div>
+        <div class="card-glass p-4 rounded-xl text-center">🎨 CSS</div>
+        <div class="card-glass p-4 rounded-xl text-center">⚡ JavaScript</div>
+        <div class="card-glass p-4 rounded-xl text-center">🎨 Bootstrap</div>
+      </div>
+    </div>
+
+    <!-- Databases & Cloud -->
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <div>
+      <h3 class="text-2xl font-semibold mb-6 text-cyan-400">☁️ Databases & Cloud</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card-glass p-4 rounded-xl text-center">🗄️ SQL (MySQL / PostgreSQL)</div>
+        <div class="card-glass p-4 rounded-xl text-center">📦 MongoDB</div>
+         <div class="card-glass p-4 rounded-xl text-center">☁️ AWS (Basics)</div>
+        <div class="card-glass p-4 rounded-xl text-center">🔥 Firebase</div>
+        <div class="card-glass p-4 rounded-xl text-center">☁️ Azure (Basics)</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Gallery Section -->
+<section id="gallery" class="min-h-screen px-10 pt-32">
+  <h2 class="text-4xl font-bold glow-text text-center mb-12">
+    <i class="fas fa-images text-cyan-400"></i> Design Gallery
+  </h2>
+
+  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <div class="gallery-item relative overflow-hidden rounded-xl cursor-pointer">
+      <img src="https://github.com/HuXn-WebDev/MERN-E-Commerce-Store/blob/main/thumb.png?raw=true" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"/>
+    </div>
+    <div class="gallery-item relative overflow-hidden rounded-xl cursor-pointer">
+      <img src="https://github.com/HuXn-WebDev/MERN-Movies-App/blob/main/thumb.png?raw=true" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"/>
+    </div>
+    <div class="gallery-item relative overflow-hidden rounded-xl cursor-pointer">
+      <img src="https://source.unsplash.com/500x400/?technology,neon" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"/>
+    </div>
+    <div class="gallery-item relative overflow-hidden rounded-xl cursor-pointer">
+      <img src="https://source.unsplash.com/500x400/?hologram,design" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"/>
+    </div>
+    <div class="gallery-item relative overflow-hidden rounded-xl cursor-pointer">
+      <img src="https://source.unsplash.com/500x400/?robot,cyber" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"/>
+    </div>
+    <div class="gallery-item relative overflow-hidden rounded-xl cursor-pointer">
+      <img src="https://source.unsplash.com/500x400/?vr,metaverse" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"/>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Get In Touch Section -->
+<section id="contact" class="min-h-screen px-10 pt-32">
+  <h2 class="text-4xl font-bold glow-text text-center mb-12">Get In Touch</h2>
+
+  <div class="grid md:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
+    <!-- Left Content -->
+    <div>
+      <h3 class="text-2xl font-semibold mb-4">Let's Create Something Amazing Together</h3>
+      <p class="text-gray-300 mb-8">
+        Ready to bring your ideas to life? I'm always excited to work on new projects and 
+        collaborate with forward-thinking individuals and teams. Whether you need a stunning website, 
+        secure full-stack application, or innovative digital experience, let's discuss how we can make it happen.
+      </p>
+
+      <div class="space-y-6">
+        <!-- Email -->
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 flex items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400">
+            📧
+          </div>
+          <div>
+            <p class="text-sm text-gray-400">Email</p>
+            <p class="text-lg">jaigudavalli555@gmail.com</p>
+          </div>
+        </div>
+        <!-- Phone -->
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 flex items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400">
+            📱
+          </div>
+          <div>
+            <p class="text-sm text-gray-400">Phone</p>
+            <p class="text-lg">+91 9640901433</p>
+          </div>
+        </div>
+        <!-- Location -->
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 flex items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400">
+            📍
+          </div>
+          <div>
+            <p class="text-sm text-gray-400">Location</p>
+            <p class="text-lg">Andhra Pradesh, India</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="mt-10">
+        <h4 class="text-lg font-semibold mb-4">Follow Me</h4>
+        <div class="flex gap-6 text-2xl">
+          <a href="https://linkedin.com/in/jaicybersecurityenthusiast" target="_blank" class="hover:text-cyan-400">🔗</a>
+          <a href="https://github.com/JAYAMANIKANTHA" target="_blank" class="hover:text-cyan-400">🐱</a>
+          <a href="#" class="hover:text-cyan-400">🐦</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Contact Form -->
+    <div class="card-glass p-8 rounded-xl shadow-lg">
+      <form class="space-y-6">
+        <div>
+          <label for="name" class="block mb-2 text-gray-300">Name</label>
+          <input type="text" id="name" placeholder="Your Name" class="w-full p-3 rounded-md bg-black/30 border border-gray-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none">
+        </div>
+        <div>
+          <label for="email" class="block mb-2 text-gray-300">Email</label>
+          <input type="email" id="email" placeholder="your.email@example.com" class="w-full p-3 rounded-md bg-black/30 border border-gray-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none">
+        </div>
+        <div>
+          <label for="message" class="block mb-2 text-gray-300">Message</label>
+          <textarea id="message" rows="5" placeholder="Tell me about your project..." class="w-full p-3 rounded-md bg-black/30 border border-gray-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none"></textarea>
+        </div>
+        <button type="submit" class="btn-glow w-full">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="mt-20 py-8 border-t border-gray-700 text-center">
+  <p class="text-gray-400">
+    © 2025 JAI Portfolio. All Rights Reserved. | Designed with ❤️ by 
+    <span class="text-cyan-400 font-semibold">JAI</span>
+  </p>
+  <div class="mt-4 flex justify-center gap-6 text-xl">
+    <a href="https://linkedin.com/in/jaicybersecurityenthusiast" target="_blank" class="hover:text-cyan-400">🔗</a>
+    <a href="https://github.com/JAYAMANIKANTHA" target="_blank" class="hover:text-cyan-400">🐱</a>
+    <a href="#" target="_blank" class="hover:text-cyan-400">🐦</a>
+  </div>
+</footer>
+
+
+
+
+
+
+  <script>
+    // GSAP animations
+    gsap.from("nav", { y: -80, opacity: 0, duration: 1 });
+    gsap.from("#hero h1", { y: -50, opacity: 0, duration: 1 });
+    gsap.from("#hero p", { y: 50, opacity: 0, duration: 1, delay: 0.3 });
+    gsap.to("#hero iframe", {
+      y: 20,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+      duration: 2
+    });
+    gsap.utils.toArray("section").forEach(section => {
+      gsap.from(section.querySelectorAll("h2, h3, p, img, a, div"), {
+        opacity: 0, y: 50, duration: 2, stagger: 0.2,
+        scrollTrigger: { trigger: section, start: "top 80%" }
+      });
+    });
+
+    // Particle background with connecting lines
+    const canvas = document.getElementById("bg");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+    const numParticles = 120;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.7;
+        this.speedY = (Math.random() - 0.5) * 0.7;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = "rgba(0,255,255,0.7)";
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = "#00ffff";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      particles = [];
+      for (let i = 0; i < numParticles; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function connectParticles() {
+      for (let a = 0; a < particles.length; a++) {
+        for (let b = a; b < particles.length; b++) {
+          let dx = particles[a].x - particles[b].x;
+          let dy = particles[a].y - particles[b].y;
+          let dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 120) {
+            ctx.strokeStyle = "rgba(0,255,255," + (1 - dist/120) + ")";
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      connectParticles();
+      requestAnimationFrame(animate);
+    }
+
+    init(); animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    });
+
+    
+  </script>
+</body>
+</html>
