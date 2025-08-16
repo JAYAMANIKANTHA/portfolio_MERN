@@ -24,3 +24,11 @@ app.get("/", (req, res) => res.send("Portfolio API is running"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`API on http://localhost:${PORT}`));
+
+
+const cors = require("cors");
+
+app.use(cors({
+  origin: ["https://your-frontend.vercel.app"],  // replace with your frontend URL
+  credentials: true
+}));
